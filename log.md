@@ -17,3 +17,4 @@
 * Ran again to sort out the issue
    - this time in attached mode 
    - `docker run --name network-simple-test --rm -p 3000:3000 network-simple:first`
+   - Got the error `Mongoose.prototype.connect() no longer accepts a callback`
