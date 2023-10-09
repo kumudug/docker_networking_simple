@@ -43,3 +43,9 @@
    - `docker run --name network-simple-test -d --rm -p 3000:3000 --network test-network network-simple:first`
    - Now if you use postman you can send a get to `http://localhost:3000/favorites` and see the api working
    - Since in the app.js 3000 is the hardcoded listen port and we are mapping `3000:3000` from internal to external when running the docker container
+* Why we don't need to export the port using `-p` for mongodb container
+   - When we ran the mongodb container using the official mongo image we used
+      - `docker run -d --name mongodb --network test-network mongo`
+   - We didn't expose the mongodb port `27017` which was used in the connection string
+   - This is because the mongodb connection is established within the docker network
+   - Its not exposed to the outside
